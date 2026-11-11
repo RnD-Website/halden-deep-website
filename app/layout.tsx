@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
-import { Inter_Tight } from "next/font/google";
+import localFont from "next/font/local";
 import Effects from "./Effects";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./globals.css";
 
-const inter = Inter_Tight({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-inter" });
+// Self-hosted (via @fontsource) so the build never depends on fetching Google Fonts.
+const inter = localFont({
+  src: [
+    { path: "../node_modules/@fontsource/inter-tight/files/inter-tight-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../node_modules/@fontsource/inter-tight/files/inter-tight-latin-500-normal.woff2", weight: "500", style: "normal" },
+  ],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: { default: "Halden Deep — Ocean Research Institute", template: "%s — Halden Deep" },
