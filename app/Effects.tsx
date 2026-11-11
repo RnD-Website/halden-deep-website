@@ -98,7 +98,9 @@ export default function Effects() {
     // section background colour shift, blended continuously while scrolling
     const hex = (h: string) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
     const els = Array.from(document.querySelectorAll<HTMLElement>("[data-tint]")).map((el) => ({ el, c: hex(el.dataset.tint || "#01080a") }));
+    const heroEl = document.querySelector<HTMLElement>(".hero");
     const tint = () => {
+      heroEl?.style.setProperty("--hp", String(Math.min(1, scrollY / innerHeight)));
       let cur = hex("#01080a");
       for (const { el, c } of els) {
         if (!el) continue;
