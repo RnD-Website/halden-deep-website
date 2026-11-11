@@ -49,7 +49,7 @@ export default function ArchiveGrid({ items }: { items: Item[] }) {
       </div>
 
       {cur && (
-        <div className="lb" role="dialog" aria-modal="true" onClick={() => setOpen(null)}>
+        <div className="lb" data-lenis-prevent role="dialog" aria-modal="true" onClick={() => setOpen(null)}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={cur.src} alt={cur.alt || cur.title} onClick={(e) => e.stopPropagation()} />
           <div className="lbcap" onClick={(e) => e.stopPropagation()}>

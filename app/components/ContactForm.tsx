@@ -36,7 +36,7 @@ export default function ContactForm() {
           {topics.map((t) => <option key={t}>{t}</option>)}
         </select>
       </label>
-      <label>Message<textarea name="message" rows={5} /></label>
+      <label>Message<textarea name="message" rows={5} data-lenis-prevent /></label>
       {err && <p className="err" role="alert">{err}</p>}
       <button className="btn" type="submit">Send message →</button>
     </form>
